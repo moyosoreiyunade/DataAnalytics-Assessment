@@ -44,4 +44,4 @@
 - I Sorted the results by estimated_clv in descending order to show high-value customers first.
 
 ### Challenges:
-- I initially used an INNER JOIN, which excluded plans that had never recorded any transaction. I resolved this by switching to a LEFT JOIN to ensure those inactive plans were still included.
+- At first, I used SUM(TIMESTAMPDIFF(MONTH, created_on, CURDATE()) which led to an inflated tenure because it was summing across multiple transaction rows. I resolved this by removing SUM and using TIMESTAMPDIFF per customer instead of aggregating it.
