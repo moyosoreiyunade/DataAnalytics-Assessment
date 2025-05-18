@@ -24,7 +24,7 @@
 
 ## 3. Question: Find all active accounts (savings or investments) with no transactions in the last 1 year (365 days)
 ### Approach:
-- I queried the plans_plan table to identify all active accounts that are either savings (is_regular_savings = 1) or investment plans (is_a_fund = 1) using a CASE statement, to clearly label each account as a "Savings" or "Investment" account.
+- I queried the plans_plan table to identify all active accounts that are either savings (is_regular_savings = 1) or investment plans (is_a_fund = 1) using a CASE statement, to clearly label each account as "Savings" or "Investment" account.
 - I used a LEFT JOIN with the savings_savingsaccount table to bring in all related transactions, ensuring that accounts with no transaction history at all are still included to fufill the objective.
 - I used GROUP BY on both owner_id and plan_id to track each account separately.
 - I used MAX(b.transaction_date) to get the latest transaction per plan and calculated the inactivity in days using DATEDIFF.
