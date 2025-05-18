@@ -41,7 +41,7 @@
 - I computed tenure using TIMESTAMPDIFF(MONTH, created_on, CURDATE()) and calculated total transactions for each customer.
 - I computed average profit per transaction by multiplying each transaction amount by 0.001 and taking the average.
 - I used the subquery to calculate estimated_clv using the formula provided, and rounded it to 2 decimal places for clarity.
-- I Sorted the results by estimated_clv in descending order to show high-value customers first.
+- I sorted the results by estimated_clv in descending order to show high-value customers first.
 
 ### Challenges:
 - At first, I used SUM(TIMESTAMPDIFF(MONTH, created_on, CURDATE()) which led to an inflated tenure because it was summing across multiple transaction rows. I resolved this by removing SUM and using TIMESTAMPDIFF, instead of aggregating it.
