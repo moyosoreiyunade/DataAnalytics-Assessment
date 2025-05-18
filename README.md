@@ -10,12 +10,14 @@
 - At first, I didn't know what columns was used for the savings and investment plans. I was able to resolve this by reading through the document provided where i was able to confirm in the Hints section (is_regular_savings and is_a_fund).
 
 
+
+
 # 2. Question: Calculate the average number of transactions per customer per month and categorize them: "High Frequency" (≥10 transactions/month), "Medium Frequency" (3-9 transactions/month), "Low Frequency" (≤2 transactions/month)
-# Approach:
+## Approach:
 - For CTE 1, I computed the total number of transactions per customer per month.
 - For CTE 2, I averaged the monthly transactions across months for each customer.
 - For CTE 3, I used a CASE statement to assign customers to frequency categories (High, Medium, Low) and return "uncategorized" if average values is greater than 2, but less than 3, and also if average values is greater than 9 but less than 10.
 - Finally, I aggregated the number of customers in each category and calculated their respective average.
 
-## Challenges:
+### Challenges:
 - There were some average values which didn't fall in any of the 3 categories requested for (that is, average values that are greater than 2, but less than 3 and average values that are greater than 9, but less than 10). I was able to resolve this by stating that if any average value doesn't fall into any of the 3 given categories, return as "Uncategorized".
