@@ -32,3 +32,16 @@
 
 ### Challenges:
 - I initially used an INNER JOIN, which excluded plans that had never recorded any transaction. I resolved this by switching to a LEFT JOIN to ensure those inactive plans were still included.
+
+
+## 4. Question: For each customer, assuming the profit_per_transaction is 0.1% of the transaction value, calculate: Account tenure (months since signup), Total transactions, Estimated CLV (Assume: CLV = (total_transactions / tenure) * 12 * avg_profit_per_transaction), and Order by estimated CLV from highest to lowest
+
+### Approach:
+- I joined users_customuser and savings_savingsaccount on owner_id to link customer data to transaction history.
+- I computed tenure using TIMESTAMPDIFF(MONTH, created_on, CURDATE()) and calculated total transactions for each customer.
+- I computed average profit per transaction by multiplying each transaction amount by 0.001 and taking the average.
+- I used the subquery to calculate estimated_clv using the formula provided, and rounded it to 2 decimal places for clarity.
+- I Sorted the results by estimated_clv in descending order to show high-value customers first.
+
+### Challenges:
+- I initially used an INNER JOIN, which excluded plans that had never recorded any transaction. I resolved this by switching to a LEFT JOIN to ensure those inactive plans were still included.
