@@ -44,4 +44,4 @@
 - I Sorted the results by estimated_clv in descending order to show high-value customers first.
 
 ### Challenges:
-- At first, I used SUM(TIMESTAMPDIFF(MONTH, created_on, CURDATE()) which led to an inflated tenure because it was summing across multiple transaction rows. I resolved this by removing SUM and using TIMESTAMPDIFF per customer instead of aggregating it.
+- At first, I used SUM(TIMESTAMPDIFF(MONTH, created_on, CURDATE()) which led to an inflated tenure because it was summing across multiple transaction rows. I resolved this by removing SUM and using TIMESTAMPDIFF, instead of aggregating it.
